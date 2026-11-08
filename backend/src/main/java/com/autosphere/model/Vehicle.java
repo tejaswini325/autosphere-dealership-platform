@@ -1,0 +1,3 @@
+package com.autosphere.model;
+import jakarta.persistence.*;
+@Entity @Table(name="vehicles") public class Vehicle {@Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id;@Column(nullable=false,unique=true) public String stockId;@Column(nullable=false) public String type;@Column(nullable=false) public String model;public String variant;public String fuel;public int year;public long kilometres;@Column(nullable=false) public long exShowroomPrice;public String status="AVAILABLE";@Column(length=1000) public String imageUrl;@Column(length=2000) public String description;public Vehicle(){} }

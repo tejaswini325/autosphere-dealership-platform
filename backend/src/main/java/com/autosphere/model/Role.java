@@ -1,0 +1,1 @@
+package com.autosphere.model; public enum Role { BUYER, SALES, ADMIN }
