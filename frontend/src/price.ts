@@ -1,0 +1,1 @@
+export function calculateOnRoadPrice(exShowroom:number,roadTax:number,insurance:number,accessories:number):number { const parts=[exShowroom,roadTax,insurance,accessories]; if(parts.some(v=>!Number.isFinite(v)||v<0)) throw new Error('Price components must be non-negative numbers'); return parts.reduce((sum,v)=>sum+v,0); }

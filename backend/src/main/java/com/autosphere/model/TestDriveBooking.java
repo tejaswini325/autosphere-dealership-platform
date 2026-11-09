@@ -1,0 +1,3 @@
+package com.autosphere.model;
+import jakarta.persistence.*;import java.time.LocalDate;
+@Entity @Table(name="test_drive_bookings",uniqueConstraints=@UniqueConstraint(columnNames={"vehicle_id","booking_date","slot_time"})) public class TestDriveBooking {@Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id;@Column(nullable=false) public String name;@Column(nullable=false) public String email;public String phone;@ManyToOne(optional=false) public Vehicle vehicle;@Column(name="booking_date",nullable=false) public LocalDate bookingDate;@Column(name="slot_time",nullable=false) public String slotTime;public String showroom;public String status="REQUESTED";public boolean consentGiven;public TestDriveBooking(){} }

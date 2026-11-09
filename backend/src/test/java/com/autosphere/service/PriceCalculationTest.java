@@ -1,0 +1,3 @@
+package com.autosphere.service;
+import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;
+class PriceCalculationTest {private final PriceCalculator calculator=new PriceCalculator();@Test void sumsAdminConfiguredPriceComponents(){assertEquals(1392000,calculator.onRoadPrice(1245000,87000,42000,18000));}@Test void supportsPreOwnedVehiclePriceComponents(){assertEquals(964000,calculator.onRoadPrice(845000,59000,42000,18000));}@Test void rejectsNegativePriceComponents(){assertThrows(IllegalArgumentException.class,()->calculator.onRoadPrice(100000,-1,1000,0));}@Test void detectsLongOverflow(){assertThrows(ArithmeticException.class,()->calculator.onRoadPrice(Long.MAX_VALUE,1,0,0));}}

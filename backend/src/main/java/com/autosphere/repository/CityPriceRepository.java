@@ -1,0 +1,1 @@
+package com.autosphere.repository;import com.autosphere.model.CityPrice;import org.springframework.data.jpa.repository.JpaRepository;import java.util.Optional;public interface CityPriceRepository extends JpaRepository<CityPrice,Long>{Optional<CityPrice> findByVehicleIdAndCityIgnoreCase(Long vehicleId,String city);}

@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: autosphere-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: autosphere
+      POSTGRES_USER: autosphere
+      POSTGRES_PASSWORD: autosphere_local
+    ports:
+      - "5432:5432"
+    volumes:
+      - autosphere_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U autosphere -d autosphere"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  autosphere_pgdata:
